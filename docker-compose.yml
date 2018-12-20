@@ -8,6 +8,10 @@ services:
       - "9300:9300"
     networks:
       - docker_elk
+    ulimits:
+      nofile:
+         soft: 65536
+         hard: 65536
   kibana:
     container_name: kibana
     image: docker.elastic.co/kibana/kibana:6.4.2
